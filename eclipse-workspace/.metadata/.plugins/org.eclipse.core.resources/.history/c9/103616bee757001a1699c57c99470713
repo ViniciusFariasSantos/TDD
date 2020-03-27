@@ -1,0 +1,5 @@
+package com.br.gft.gestaoShow.model;
+
+public class Cliente {
+
+}

@@ -1,0 +1,55 @@
+package br.ce.wcaquino.servicos;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
+
+
+public class CalculadoraMocketTeste {
+	
+	@Mock
+	private Calculadora  calcMock;
+	
+	@Spy
+	private Calculadora calcSpy;
+	
+	
+	@Before
+	private void setup() {
+		MockitoAnnotations.initMocks(this);
+
+	}
+	
+	@Test
+	public void deveMostrarDiferencaEntreMockSpy() {
+		
+		System.out.println(calcMock.somar(1, 2));
+	}
+	
+	
+	@Test
+	public void teste() {
+		Calculadora cal = Mockito.mock(Calculadora.class);
+		
+		ArgumentCaptor<Integer> argumentCaptor = ArgumentCaptor.forClass(Integer.class);
+		
+		Mockito.when(cal.somar(argumentCaptor.capture(), argumentCaptor.capture())).thenReturn(5);
+		
+		
+		
+		Assert.assertEquals(5,cal.somar(1, 8));
+		
+		
+		
+		
+	}
+}
+
+
+

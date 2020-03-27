@@ -1,0 +1,151 @@
+<!doctype html>
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="LayoutPadrao">
+
+<head>
+<title>Cadasrtro Eventos</title>
+</head>
+
+<section layout:fragment="corpo">
+
+	<div class="card">
+		<h5 class="card-header">Cadastro Evento</h5>
+		<div class="card-body">
+			<form method="POST" action="/cadastroEve" th:object="${evento}">
+			<div class="alert alert-success "
+					th:if="${!#strings.isEmpty(mensagem) }">
+
+					<span th:text="${mensagem}">Evento salvo com sucesso!</span>
+
+				</div>
+
+
+
+				<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
+					<div th:each="detailedError : ${#fields.detailedErrors()}">
+						<span th:text="${detailedError.message}"></span>
+					</div>
+				</div>
+
+				<INPUT type="hidden" th:field="*{codigoEvento}" />
+				<div class="form-group">
+
+					<label for="idade">Evento :</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="idade"
+							th:field="*{nomeEvento}" placeholder="Nome do Show"
+							th:classappend="${#fields.hasErrors('nomeEvento')} ? is-invalid">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="curso">Capacidade :</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="curso"
+							th:field="*{capacidade}"
+							placeholder="Capacidade total de pessoa "
+							th:classappend="${#fields.hasErrors('capacidade')} ? is-invalid">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="curso">Data :</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="curso"
+							th:field="*{data}" placeholder="DD/MM/AAAA"
+							th:classappend="${#fields.hasErrors('data')} ? is-invalid">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="curso">Valor do Ingresso :</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="curso"
+							th:field="*{valorIngresso}" placeholder="R$ 0000,00"
+							th:classappend="${#fields.hasErrors('valorIngresso')} ? is-invalid">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="status">Status</label>
+					<div class="col-sm-4">
+						<select class="form-control" id="status" name="status">
+							<option th:each="statusEstilo :${StatusEstilo}"
+								th:value="${statusEstilo}" th:text="${statusEstilo.descricao}" />
+
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="status">Status</label>
+					<div class="col-sm-4">
+						<select class="form-control" id="status" name="nomeCasaShow">
+							<option th:each="status : ${statusEvento}"
+								th:value="${status.codigoShow}" th:text="${status.nomeCasaShow}" />
+						</select>
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary">Cadastrar</button>
+			</form>
+		</div>
+	</div>
+		<div class="card ">
+		<div class="card-header">
+			<h1 class="card-title">Lista de Evento</h1>
+		</div>
+		<div class="card-body">
+			<form class="form-inline" method="POST" style="margin: 20px 0">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Buscar..." autofocus="autofocus" name="nomeEvento">
+					<button type="submit" class="btn btn-primary">Adicionar</button>
+				</div>
+			</form>
+
+
+			<table class="table table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th>#</th>
+						<th>Evento</th>
+						<th>Capacidade</th>
+						<th>Data</th>
+						<th>Valor do Ingresso</th>
+						<th>Estilo Musical</th>
+						<th>Casa de Show</th>
+						<th>Editar/Deletar</th>
+						<th>
+							<!-- Aqui ira os botoes de deletar e editar -->
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+				<tbody>
+					<tr th:each="evento : ${eventoPesquisa}">
+						<td th:text="${evento.codigoEvento }"></td>
+						<td th:text="${evento.nomeEvento}"></td>
+						<td th:text="${evento.capacidade}"></td>
+						<td th:text="${evento.data}"></td>
+						<td th:text="|R$ ${{evento.valorIngresso}} |"></td>
+						<td th:text="${evento.status.descricao}"></td>
+						<td th:text="${evento.nomeCasaShow.nomeCasaShow}"></td>
+						
+						<td>
+							<a type="submit" class="btn btn-primary" th:href="@{/cadastroEve/{codigo}(codigo=${evento.codigoEvento})}">Editar</a>
+							<a type="submit" class="btn btn-danger" th:href="@{/cadastroEve/excluir/{codigo}(codigo=${evento.codigoEvento})}">Deletar</a>
+						</td>
+						
+						
+						
+					
+						<td colspan=8 th:if="${#lists.isEmpty(evento) }"><span>nenhum titulo
+							foi encontrado!</span></td>
+					</tr>
+
+				</tbody>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</section>
+</html>

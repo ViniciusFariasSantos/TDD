@@ -1,0 +1,81 @@
+package com.br.gft.gestaoShow.model;
+
+import javax.persistence.Entity;
+
+@Entity(name="CADASTRO_CLIENTE")
+public class Cliente {
+	
+	private String nomeCliente;
+
+	private String sobreNome;
+	
+	private String idade;
+	
+	private String cpf;
+	
+	private String endereço;
+	
+	private String email;
+	
+	private String senha;
+
+	public String getNomeCliente() {
+		return nomeCliente;
+	}
+
+	public void setNomeCliente(String nomeCliente) {
+		this.nomeCliente = nomeCliente;
+	}
+
+	public String getSobreNome() {
+		return sobreNome;
+	}
+
+	public void setSobreNome(String sobreNome) {
+		this.sobreNome = sobreNome;
+	}
+
+	public String getIdade() {
+		return idade;
+	}
+
+	public void setIdade(String idade) {
+		this.idade = idade;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getEndereço() {
+		return endereço;
+	}
+
+	public void setEndereço(String endereço) {
+		this.endereço = endereço;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	
+	
+	
+}

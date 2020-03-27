@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="CalculadoraTeste (1)" project="TestesUnitarios" tests="5" started="5" failures="0" errors="0" ignored="0">
+  <testsuite name="br.ce.wcaquino.servicos.CalculadoraTeste" time="0.001">
+    <testcase name="deveSomarDoisValores" classname="br.ce.wcaquino.servicos.CalculadoraTeste" time="0.001"/>
+    <testcase name="deveDividir" classname="br.ce.wcaquino.servicos.CalculadoraTeste" time="0.0"/>
+    <testcase name="deveDividirDoisvalores" classname="br.ce.wcaquino.servicos.CalculadoraTeste" time="0.0"/>
+    <testcase name="deveSubtrairDoisValores" classname="br.ce.wcaquino.servicos.CalculadoraTeste" time="0.0"/>
+    <testcase name="deveLancarExcecaoDividirPorZero" classname="br.ce.wcaquino.servicos.CalculadoraTeste" time="0.0"/>
+  </testsuite>
+</testrun>

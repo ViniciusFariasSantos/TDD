@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Users\vinic\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+969679666.index
+3886073955.index
+1590789378.index
+2945275471.index
+2011099338.index
+2611536222.index

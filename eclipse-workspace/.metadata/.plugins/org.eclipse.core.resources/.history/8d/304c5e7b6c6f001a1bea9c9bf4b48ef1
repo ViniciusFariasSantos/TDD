@@ -1,0 +1,31 @@
+package br.ce.wcaquino.servicos;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Mockito;
+
+import br.ce.wcaquino.entidades.Locacao;
+
+public class CalculadoraMocketTeste {
+	@Test
+	public void teste() {
+		Calculadora cal = Mockito.mock(Calculadora.class);
+		
+		ArgumentCaptor<Integer> argumentCaptor = ArgumentCaptor.forClass(Integer.class);
+		
+		Mockito.when(cal.somar(argumentCaptor.capture(), argumentCaptor.capture())).thenReturn(5);
+		
+		
+		
+		Assert.assertEquals(5,cal.somar(1, 8));
+		System.out.println(argumentCaptor.getAllValues());
+		
+		
+		
+		
+	}
+}
+
+
+

@@ -1,0 +1,45 @@
+.card{
+	margin-top: 10%;
+	margin-right: 5%;
+	margin-left: 5%;
+	padding-bottom: 5%;
+}
+#slide{
+	height: 500px;
+	overflow: hidden;
+	
+}
+body{
+	background-color: #828282;
+}
+
+.marketing{
+ 		margin-top: 5%;
+}
+h2{
+	color:white;
+}
+p{
+	color:white;
+}
+.text-center{
+margin-top: 20%;	
+}
+#rodape{
+	margin-top:5%;
+      clear:      both;
+    border-top: 1px solid #606060;
+    font-family: arial;
+      }
+
+#rodape p{
+        text-align: center;
+        font-family: arial;
+     }
+
+#rodape a{
+        text-align: center;
+        color:  white;
+     }
+      
+  
